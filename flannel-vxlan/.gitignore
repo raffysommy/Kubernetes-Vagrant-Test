@@ -1,0 +1,5 @@
+.vagrant
+.dockercfg
+temp/*
+synced_folders.yaml
+artifacts/*
