@@ -1,8 +1,9 @@
 ---
 title: Deploying Calico and Kubernetes on Container Linux by CoreOS using Vagrant and VirtualBox
+redirect_from: latest/getting-started/kubernetes/installation/vagrant/index
 ---
 
-These instructions allow you to set up a Kubernetes cluster with Calico networking using Vagrant and the [Calico CNI plugin][calico-cni]. This guide does not setup TLS between Kubernetes components.
+These instructions allow you to set up a Kubernetes cluster with Calico networking using Vagrant and the [Calico CNI plugin][cni-plugin]. This guide does not setup TLS between Kubernetes components.
 
 ## 1. Deploy cluster using Vagrant
 
@@ -10,17 +11,15 @@ These instructions allow you to set up a Kubernetes cluster with Calico networki
 
 * [VirtualBox][virtualbox] 5.0.0 or greater.
 * [Vagrant][vagrant] 1.7.4 or greater.
-* [Git][git]
+* [Curl][curl]
 
-### 1.2 Clone the project
+### 1.2 Download the source files
 
-    git clone https://github.com/projectcalico/calico.git
+    curl -O {{site.url}}{{page.dir}}Vagrantfile
+    curl -O {{site.url}}{{page.dir}}master-config.yaml
+    curl -O {{site.url}}{{page.dir}}node-config.yaml
 
 ### 1.3 Startup and SSH
-
-Change into the directory for this guide:
-
-    cd calico/{{page.version}}/getting-started/kubernetes/installation/vagrant
 
 Run
 
@@ -76,14 +75,14 @@ Let's configure `kubectl` so you can access the cluster from your local machine.
 For Mac:
 
 ```shell
-wget http://storage.googleapis.com/kubernetes-release/release/v1.5.1/bin/darwin/amd64/kubectl
+wget http://storage.googleapis.com/kubernetes-release/release/v1.6.0/bin/darwin/amd64/kubectl
 chmod +x ./kubectl
 ```
 
 For Linux:
 
 ```shell
-wget http://storage.googleapis.com/kubernetes-release/release/v1.5.1/bin/linux/amd64/kubectl
+wget http://storage.googleapis.com/kubernetes-release/release/v1.6.0/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 ```
 
@@ -105,7 +104,7 @@ You should now have a fully functioning Kubernetes cluster using Calico for netw
 
 We recommend you try using [Calico for Kubernetes NetworkPolicy]({{site.baseurl}}/{{page.version}}/getting-started/kubernetes/tutorials/simple-policy).
 
-[calico-cni]: https://github.com/projectcalico/calico-cni
+[cni-plugin]: https://github.com/projectcalico/cni-plugin
 [virtualbox]: https://www.virtualbox.org/
 [vagrant]: https://www.vagrantup.com/downloads.html
-[git]: http://git-scm.com/
+[curl]: https://curl.haxx.se/
